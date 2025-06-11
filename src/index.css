@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* light background */
+    --foreground: 240 10% 10%; /* dark text */
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 10%;
+
+    --popover: 0 0% 98%;
+    --popover-foreground: 240 10% 10%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 4% 95%;
+    --secondary-foreground: 240 10% 10%;
+
+    --muted: 240 4% 90%;
+    --muted-foreground: 240 5% 30%;
+
+    --accent: 240 4% 95%;
+    --accent-foreground: 240 10% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 5% 90%;
+    --input: 240 5% 90%;
+    --ring: 240 4.9% 83.9%;
+
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-black/10 selection:text-black;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased overflow-x-hidden;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    background: linear-gradient(to top right, #ffffff 25%, #f0f4ff 60%, #e4e9ff 90%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/60 backdrop-blur-md border border-black/10 shadow-xl;
+  }
+
+  .glass-card {
+    @apply rounded-2xl p-6 glass transition-all duration-300 hover:bg-white/70 hover:border-black/20 hover:shadow-2xl;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-br from-black via-gray-700 to-blue-600 bg-clip-text text-transparent;
+  }
+
+  .section-fade-in > * {
+    @apply opacity-0;
+  }
+
+  .nav-link.active {
+    @apply text-primary border-b-2 border-primary;
+  }
+
+  .skill-badge {
+    @apply px-3 py-1 rounded-full text-sm glass inline-flex items-center gap-1 hover:scale-105 transition-transform;
+  }
+
+  .tag {
+    @apply px-2 py-0.5 text-xs rounded-md glass;
+  }
+}
